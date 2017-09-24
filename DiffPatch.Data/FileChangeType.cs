@@ -1,4 +1,4 @@
-﻿namespace DiffPatch.DiffParser
+﻿namespace DiffPatch.Data
 {
     public enum FileChangeType
     {

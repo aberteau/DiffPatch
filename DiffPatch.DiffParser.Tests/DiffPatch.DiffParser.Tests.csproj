@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DiffPatch.Data\DiffPatch.Data.csproj" />
     <ProjectReference Include="..\DiffPatch.DiffParser\DiffPatch.DiffParser.csproj" />
   </ItemGroup>
 

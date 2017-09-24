@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DiffPatch.DiffParser
+namespace DiffPatch.Data
 {
     public class ChunkDiff
     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using DiffPatch.Data;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DiffPatch.DiffParser.Tests

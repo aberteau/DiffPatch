@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace DiffPatch.DiffParser
+namespace DiffPatch.Data
 {
     public class FileDiff
     {
         public ICollection<ChunkDiff> Chunks { get; } = new List<ChunkDiff>();
 
-        public int Deletions { get; internal set; }
-        public int Additions { get; internal set; }
+        public int Deletions { get; set; }
+        public int Additions { get; set; }
 
-        public string To { get; internal set; }
+        public string To { get; set; }
 
-        public string From { get; internal set; }
+        public string From { get; set; }
 
-        public FileChangeType Type { get; internal set; }
+        public FileChangeType Type { get; set; }
 
         public bool Deleted => Type == FileChangeType.Delete;
 
         public bool Add => Type == FileChangeType.Add;
 
-        public IEnumerable<string> Index { get; internal set; }
+        public IEnumerable<string> Index { get; set; }
 
         private delegate void ParserAction(string line, Match m);
 
