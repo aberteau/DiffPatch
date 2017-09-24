@@ -12,7 +12,7 @@
         public LineDiff(int oldIndex, int newIndex, string content)
         {
             OldIndex = oldIndex;
-            NewIndex = NewIndex;
+            NewIndex = newIndex;
             Type = LineChangeType.Normal;
             Content = content;
         }
