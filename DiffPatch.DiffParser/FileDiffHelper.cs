@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using DiffPatch.Core;
 using DiffPatch.Data;
 
 namespace DiffPatch.DiffParser
@@ -12,11 +13,9 @@ namespace DiffPatch.DiffParser
 
         public static IEnumerable<FileDiff> Parse(string input, string lineEnding = "\n")
         {
-            if (string.IsNullOrWhiteSpace(input)) return Enumerable.Empty<FileDiff>();
+            var lines = StringHelper.SplitLines(input);
 
-            var lines = input.Split(new[] { lineEnding }, StringSplitOptions.None);
-
-            if (lines.Length == 0) return Enumerable.Empty<FileDiff>();
+            if (!lines.Any()) return Enumerable.Empty<FileDiff>();
 
             var files = new List<FileDiff>();
             var in_del = 0;
