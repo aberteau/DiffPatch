@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParseDiff", "ParseDiff\Pars
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParseDiff.Tests", "ParseDiff.Tests\ParseDiff.Tests.csproj", "{8C1F9C75-E116-4224-94C3-B1119773D155}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiffPatch.DiffParser.Tests", "DiffPatch.DiffParser.Tests\DiffPatch.DiffParser.Tests.csproj", "{A597F7B9-A590-4C65-A661-18DA947EE33D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{8C1F9C75-E116-4224-94C3-B1119773D155}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C1F9C75-E116-4224-94C3-B1119773D155}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C1F9C75-E116-4224-94C3-B1119773D155}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A597F7B9-A590-4C65-A661-18DA947EE33D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A597F7B9-A590-4C65-A661-18DA947EE33D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A597F7B9-A590-4C65-A661-18DA947EE33D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A597F7B9-A590-4C65-A661-18DA947EE33D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
