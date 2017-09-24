@@ -13,7 +13,7 @@ namespace DiffPatch.DiffParser
 
         public static IEnumerable<FileDiff> Parse(string input, string lineEnding = "\n")
         {
-            var lines = StringHelper.SplitLines(input);
+            var lines = StringHelper.SplitLines(input, lineEnding);
 
             if (!lines.Any()) return Enumerable.Empty<FileDiff>();
 
