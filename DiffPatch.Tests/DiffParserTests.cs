@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DiffPatch.Tests
 {
     [TestClass]
-    public class TestDiff
+    public class DiffParserTests
     {
         [TestMethod]
         public void ShouldParseNull() =>
