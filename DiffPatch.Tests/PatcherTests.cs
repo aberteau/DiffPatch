@@ -27,10 +27,10 @@ index 123..456 789
             var chunk = file.Chunks.First();
 
 
-            var srcString = "line1\nline1a";
-            var expectedString = "line2\nline1a";
+            var srcString = " line1\n line1a";
+            var expectedString = " line2\n line1a";
 
-            string patchedString = Patcher.Patch(srcString, new [] {chunk});
+            string patchedString = Patcher.Patch(srcString, new [] {chunk}, "\n");
             Assert.AreEqual(expectedString, patchedString);
         }
 
@@ -45,9 +45,9 @@ index 123..456 789
             FileDiff file = files[0];
 
             string srcString = DataSetHelper.ReadFileContent(dataSetId, "Diff-b3a6303.txt");
-            string expectedString = DataSetHelper.ReadFileContent(dataSetId, "Diff-781096c.txt");
+            string expectedString = DataSetHelper.ReadFileContent(dataSetId, "Diff-781096c.txt").Trim();
 
-            string patchedString = Patcher.Patch(srcString, file.Chunks);
+            string patchedString = Patcher.Patch(srcString, file.Chunks, Environment.NewLine).Trim();
             Assert.AreEqual(expectedString, patchedString);
         }
     }

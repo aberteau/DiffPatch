@@ -122,13 +122,15 @@ namespace DiffPatch.DiffParser
 
         private void DeleteLine(string line)
         {
-            current.Changes.Add(new LineDiff(type: LineChangeType.Delete, index: in_del++, content: line));
+            string content = DiffLineHelper.GetContent(line);
+            current.Changes.Add(new LineDiff(type: LineChangeType.Delete, index: in_del++, content: content));
             file.Deletions++;
         }
 
         private void AddLine(string line)
         {
-            current.Changes.Add(new LineDiff(type: LineChangeType.Add, index: in_add++, content: line));
+            string content = DiffLineHelper.GetContent(line);
+            current.Changes.Add(new LineDiff(type: LineChangeType.Add, index: in_add++, content: content));
             file.Additions++;
         }
 
@@ -139,10 +141,11 @@ namespace DiffPatch.DiffParser
 
             if (string.IsNullOrEmpty(line)) return;
 
+            string content = DiffLineHelper.GetContent(line);
             current.Changes.Add(new LineDiff(
                 oldIndex: line == noeol ? 0 : in_del++,
                 newIndex: line == noeol ? 0 : in_add++,
-                content: line));
+                content: content));
         }
 
         private bool ParseLine(string line)

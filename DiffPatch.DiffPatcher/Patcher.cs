@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using DiffPatch.Core;
 using DiffPatch.Data;
 
@@ -10,22 +8,23 @@ namespace DiffPatch.DiffPatcher
 {
     public class Patcher
     {
-        public static String Patch(String src, IEnumerable<Chunk> chunks, string lineEnding = "\n")
+        public static String Patch(String src, IEnumerable<Chunk> chunks, string lineEnding)
         {
             IEnumerable<String> srcLines = StringHelper.SplitLines(src, lineEnding);
             IList<string> dstLines = new List<string>(srcLines);
 
             foreach (Chunk chunk in chunks)
             {
-                int lineIndex = chunk.RangeInfo.NewRange.StartLine - 1; // zero-index the start line 
-                if (lineIndex < 0)
-                    lineIndex = 0;
+                int lineIndex = 0;
+
+                if (chunk.RangeInfo.NewRange.StartLine != 0)
+                    lineIndex = chunk.RangeInfo.NewRange.StartLine - 1; // zero-index the start line 
 
                 foreach (LineDiff lineDiff in chunk.Changes)
                 {
                     if (lineDiff.Add)
                     {
-                        dstLines.Insert(lineIndex, lineDiff.Content.Substring(2));
+                        dstLines.Insert(lineIndex, lineDiff.Content);
                         lineIndex++;
                     }
                     else if (lineDiff.Delete)
