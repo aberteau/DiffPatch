@@ -4,7 +4,7 @@ namespace DiffPatch.Data
 {
     public class FileDiff
     {
-        public ICollection<ChunkDiff> Chunks { get; } = new List<ChunkDiff>();
+        public ICollection<Chunk> Chunks { get; } = new List<Chunk>();
 
         public int Deletions { get; set; }
         public int Additions { get; set; }

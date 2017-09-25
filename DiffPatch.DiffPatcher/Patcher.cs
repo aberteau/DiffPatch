@@ -10,18 +10,18 @@ namespace DiffPatch.DiffPatcher
 {
     public class Patcher
     {
-        public static String Patch(String src, IEnumerable<ChunkDiff> chunkDiffs, string lineEnding = "\n")
+        public static String Patch(String src, IEnumerable<Chunk> chunks, string lineEnding = "\n")
         {
             IEnumerable<String> srcLines = StringHelper.SplitLines(src, lineEnding);
             IList<string> dstLines = new List<string>(srcLines);
 
-            foreach (ChunkDiff chunkDiff in chunkDiffs)
+            foreach (Chunk chunk in chunks)
             {
-                int lineIndex = chunkDiff.NewStart - 1; // zero-index the start line 
+                int lineIndex = chunk.NewStart - 1; // zero-index the start line 
                 if (lineIndex < 0)
                     lineIndex = 0;
 
-                foreach (LineDiff lineDiff in chunkDiff.Changes)
+                foreach (LineDiff lineDiff in chunk.Changes)
                 {
                     if (lineDiff.Add)
                     {

@@ -2,9 +2,9 @@
 
 namespace DiffPatch.Data
 {
-    public class ChunkDiff
+    public class Chunk
     {
-        public ChunkDiff(string content, int oldStart, int oldLines, int newStart, int newLines)
+        public Chunk(string content, int oldStart, int oldLines, int newStart, int newLines)
         {
             Content = content;
             OldStart = oldStart;

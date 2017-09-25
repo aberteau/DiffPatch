@@ -21,7 +21,7 @@ namespace DiffPatch.DiffParser
             var in_del = 0;
             var in_add = 0;
 
-            ChunkDiff current = null;
+            Chunk current = null;
             FileDiff file = null;
 
             int oldStart, newStart;
@@ -80,7 +80,7 @@ namespace DiffPatch.DiffParser
                 oldLines = match.Groups[2].Success ? int.Parse(match.Groups[2].Value) : 0;
                 in_add = newStart = int.Parse(match.Groups[3].Value);
                 newLines = match.Groups[4].Success ? int.Parse(match.Groups[4].Value) : 0;
-                current = new ChunkDiff(
+                current = new Chunk(
                     content: line,
                     oldStart: oldStart,
                     oldLines: oldLines,
