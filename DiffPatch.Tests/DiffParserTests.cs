@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using DiffPatch.Data;
 using DiffPatch.DiffParser;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -20,6 +22,31 @@ namespace DiffPatch.Tests
         [TestMethod]
         public void ShouldParseWhitespace() =>
             Assert.AreEqual(0, Diff.Parse(" ").Count());
+
+        [TestMethod]
+        public void ShouldParseDataSet1709251127Diff()
+        {
+            Assembly assembly = typeof(DiffParserTests).GetTypeInfo().Assembly;
+            string assemblyName = assembly.GetName().Name;
+            string resourceName = $"{assemblyName}.DataSets.D1709251127.Diff-68c4e7b-781096c.diff";
+
+            string diff = null;
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                diff = reader.ReadToEnd();
+            }
+
+            var files = Diff.Parse(diff, Environment.NewLine).ToArray();
+            Assert.AreEqual(1, files.Length);
+            var file = files[0];
+
+            string expectedFileName = "DiffPatch.DiffParser/Diff.cs";
+            Assert.AreEqual(expectedFileName, file.From);
+            Assert.AreEqual(expectedFileName, file.To);
+            Assert.AreEqual(2, file.Chunks.Count());
+        }
+
 
         [TestMethod]
         public void ShouldParseSimpleGitLikeDiff()
