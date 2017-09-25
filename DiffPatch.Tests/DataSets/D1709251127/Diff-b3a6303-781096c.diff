@@ -8,8 +8,7 @@
  using DiffPatch.Data;
  
  namespace DiffPatch.DiffParser
-@@ -9,11 +10,13 @@
-     namespace DiffPatch.DiffParser
+@@ -9,11 +10,13 @@ namespace DiffPatch.DiffParser
      {
          public static IEnumerable<FileDiff> Parse(string input, string lineEnding = "\n")
          {
