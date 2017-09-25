@@ -39,12 +39,12 @@ index 123..456 789
         {
             string dataSetId = "D1709251127";
 
-            var diff = DataSetHelper.ReadFileContent(dataSetId, "Diff-68c4e7b-781096c.diff");
+            var diff = DataSetHelper.ReadFileContent(dataSetId, "Diff-b3a6303-781096c.diff");
 
             FileDiff[] files = Diff.Parse(diff, Environment.NewLine).ToArray();
             FileDiff file = files[0];
 
-            string srcString = DataSetHelper.ReadFileContent(dataSetId, "Diff-68c4e7b.txt");
+            string srcString = DataSetHelper.ReadFileContent(dataSetId, "Diff-b3a6303.txt");
             string expectedString = DataSetHelper.ReadFileContent(dataSetId, "Diff-781096c.txt");
 
             string patchedString = Patcher.Patch(srcString, file.Chunks);

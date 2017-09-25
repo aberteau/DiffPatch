@@ -26,7 +26,7 @@ namespace DiffPatch.Tests
         [TestMethod]
         public void ShouldParseDataSet1709251127Diff()
         {
-            string diff = DataSetHelper.ReadFileContent("D1709251127", "Diff-68c4e7b-781096c.diff");
+            string diff = DataSetHelper.ReadFileContent("D1709251127", "Diff-b3a6303-781096c.diff");
 
             var files = Diff.Parse(diff, Environment.NewLine).ToArray();
             Assert.AreEqual(1, files.Length);
