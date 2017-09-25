@@ -6,7 +6,7 @@ namespace DiffPatch.Core
 {
     public static class StringHelper
     {
-        public static IEnumerable<String> SplitLines(string input, string lineEnding = "\n")
+        public static IEnumerable<String> SplitLines(string input, string lineEnding)
         {
             if (string.IsNullOrWhiteSpace(input))
                 return Enumerable.Empty<String>();
