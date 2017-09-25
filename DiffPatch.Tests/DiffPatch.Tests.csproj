@@ -8,14 +8,12 @@
 
   <ItemGroup>
     <None Remove="DataSets\D1709251127\Diff-68c4e7b-781096c.diff" />
-    <None Remove="DataSets\D1709251127\Diff-68c4e7b.cs.txt" />
-    <None Remove="DataSets\D1709251127\Diff-781096c.cs.txt" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="DataSets\D1709251127\Diff-68c4e7b-781096c.diff" />
-    <EmbeddedResource Include="DataSets\D1709251127\Diff-68c4e7b.cs.txt" />
-    <EmbeddedResource Include="DataSets\D1709251127\Diff-781096c.cs.txt" />
+    <EmbeddedResource Include="DataSets\D1709251127\Diff-68c4e7b.txt" />
+    <EmbeddedResource Include="DataSets\D1709251127\Diff-781096c.txt" />
   </ItemGroup>
 
   <ItemGroup>

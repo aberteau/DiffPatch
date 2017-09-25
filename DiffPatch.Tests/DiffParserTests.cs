@@ -26,16 +26,7 @@ namespace DiffPatch.Tests
         [TestMethod]
         public void ShouldParseDataSet1709251127Diff()
         {
-            Assembly assembly = typeof(DiffParserTests).GetTypeInfo().Assembly;
-            string assemblyName = assembly.GetName().Name;
-            string resourceName = $"{assemblyName}.DataSets.D1709251127.Diff-68c4e7b-781096c.diff";
-
-            string diff = null;
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                diff = reader.ReadToEnd();
-            }
+            string diff = DataSetHelper.ReadFileContent("D1709251127", "Diff-68c4e7b-781096c.diff");
 
             var files = Diff.Parse(diff, Environment.NewLine).ToArray();
             Assert.AreEqual(1, files.Length);
@@ -46,7 +37,6 @@ namespace DiffPatch.Tests
             Assert.AreEqual(expectedFileName, file.To);
             Assert.AreEqual(2, file.Chunks.Count());
         }
-
 
         [TestMethod]
         public void ShouldParseSimpleGitLikeDiff()
