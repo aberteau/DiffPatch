@@ -111,13 +111,12 @@ namespace DiffPatch.DiffParser
             oldLines = match.Groups[2].Success ? int.Parse(match.Groups[2].Value) : 0;
             in_add = newStart = int.Parse(match.Groups[3].Value);
             newLines = match.Groups[4].Success ? int.Parse(match.Groups[4].Value) : 0;
-            current = new Chunk(
-                content: line,
-                oldStart: oldStart,
-                oldLines: oldLines,
-                newStart: newStart,
-                newLines: newLines
+            ChunkRangeInfo rangeInfo = new ChunkRangeInfo(
+                new ChunkRange(oldStart, oldLines),
+                new ChunkRange(newStart, newLines)
             );
+
+            current = new Chunk(line, rangeInfo);
             file.Chunks.Add(current);
         }
 

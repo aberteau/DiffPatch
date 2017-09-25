@@ -174,7 +174,7 @@ index 0000000..db81be4
             Assert.AreEqual("/dev/null", file.From);
             Assert.AreEqual("file2", file.To);
             Assert.AreEqual("@@ -0,0 +1 @@", file.Chunks.ElementAt(0).Content);
-            Assert.AreEqual(0, file.Chunks.ElementAt(0).NewLines);
+            Assert.AreEqual(0, file.Chunks.ElementAt(0).RangeInfo.NewRange.LineCount);
             Assert.AreEqual(1, file.Chunks.ElementAt(0).Changes.Count());
             Assert.AreEqual("+line1", file.Chunks.ElementAt(0).Changes.ElementAt(0).Content);
             Assert.AreEqual(LineChangeType.Add, file.Chunks.ElementAt(0).Changes.ElementAt(0).Type);
@@ -249,16 +249,16 @@ But after they are produced,
             Assert.AreEqual(2, file.Chunks.Count());
             var chunk0 = file.Chunks.ElementAt(0);
     
-            Assert.AreEqual(1, chunk0.OldStart);
-            Assert.AreEqual(7, chunk0.OldLines);
-            Assert.AreEqual(1, chunk0.NewStart);
-            Assert.AreEqual(6, chunk0.NewLines);
+            Assert.AreEqual(1, chunk0.RangeInfo.OriginalRange.StartLine);
+            Assert.AreEqual(7, chunk0.RangeInfo.OriginalRange.LineCount);
+            Assert.AreEqual(1, chunk0.RangeInfo.NewRange.StartLine);
+            Assert.AreEqual(6, chunk0.RangeInfo.NewRange.LineCount);
             var chunk1 = file.Chunks.ElementAt(1);
     
-            Assert.AreEqual(9, chunk1.OldStart);
-            Assert.AreEqual(3, chunk1.OldLines);
-            Assert.AreEqual(8, chunk1.NewStart);
-            Assert.AreEqual(6, chunk1.NewLines);
+            Assert.AreEqual(9, chunk1.RangeInfo.OriginalRange.StartLine);
+            Assert.AreEqual(3, chunk1.RangeInfo.OriginalRange.LineCount);
+            Assert.AreEqual(8, chunk1.RangeInfo.NewRange.StartLine);
+            Assert.AreEqual(6, chunk1.RangeInfo.NewRange.LineCount);
         }
 
         [TestMethod]

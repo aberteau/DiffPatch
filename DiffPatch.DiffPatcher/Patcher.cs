@@ -17,7 +17,7 @@ namespace DiffPatch.DiffPatcher
 
             foreach (Chunk chunk in chunks)
             {
-                int lineIndex = chunk.NewStart - 1; // zero-index the start line 
+                int lineIndex = chunk.RangeInfo.NewRange.StartLine - 1; // zero-index the start line 
                 if (lineIndex < 0)
                     lineIndex = 0;
 
