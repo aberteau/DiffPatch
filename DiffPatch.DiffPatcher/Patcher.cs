@@ -10,40 +10,38 @@ namespace DiffPatch.DiffPatcher
 {
     public class Patcher
     {
-        public static String Patch(String src, IEnumerable<ChunkDiff> chunkDiffs)
+        public static String Patch(String src, IEnumerable<ChunkDiff> chunkDiffs, string lineEnding = "\n")
         {
-            IEnumerable<String> srcLines = StringHelper.SplitLines(src);
-            int lineIndex = 1;
+            IEnumerable<String> srcLines = StringHelper.SplitLines(src, lineEnding);
+            IList<string> dstLines = new List<string>(srcLines);
 
-
-            IEnumerable<Tuple<Int32, Int32, ChunkDiff>> chunkDiffByOldStart = chunkDiffs.Select(d => new Tuple<int, int, ChunkDiff>(d.OldStart, d.OldStart + d.OldLines, d));
-
-            StringBuilder stringBuilder = new StringBuilder();
-
-
-            foreach (string srcLine in srcLines)
+            foreach (ChunkDiff chunkDiff in chunkDiffs)
             {
-                Tuple<int, int, ChunkDiff> tuple = chunkDiffByOldStart.FirstOrDefault(kvp => lineIndex >= kvp.Item1 && lineIndex < kvp.Item2);
-                if (tuple == null)
-                {
-                    stringBuilder.AppendLine(srcLine);
-                }
-                else
-                {
-                    LineDiff lineDiff = tuple.Item3.Changes.FirstOrDefault(l => tuple.Item1 + l.OldIndex == lineIndex);
-                    if (lineDiff != null)
-                    {
-                        if (lineDiff.Normal || lineDiff.Add)
-                        {
-                            stringBuilder.AppendLine(lineDiff.Content);
-                        }
-                    }
+                int lineIndex = chunkDiff.NewStart - 1; // zero-index the start line 
+                if (lineIndex < 0)
+                    lineIndex = 0;
 
+                foreach (LineDiff lineDiff in chunkDiff.Changes)
+                {
+                    if (lineDiff.Add)
+                    {
+                        dstLines.Insert(lineIndex, lineDiff.Content.Substring(2));
+                        lineIndex++;
+                    }
+                    else if (lineDiff.Delete)
+                    {
+                        dstLines.RemoveAt(lineIndex);
+                    }
+                    else if (lineDiff.Normal)
+                    {
+                        lineIndex++;
+                    }
                 }
-                lineIndex++;
+
             }
 
-            return stringBuilder.ToString();
+            string patchString = string.Join(lineEnding, dstLines.ToArray());
+            return patchString;
         }
     }
 }
