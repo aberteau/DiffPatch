@@ -12,8 +12,4 @@
     <PackageTags>diff patch</PackageTags>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\DiffPatch.Data\DiffPatch.Data.csproj" />
-  </ItemGroup>
-
 </Project>

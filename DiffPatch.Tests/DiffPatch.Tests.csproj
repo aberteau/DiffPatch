@@ -19,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DiffPatch.Data\DiffPatch.Data.csproj" />
     <ProjectReference Include="..\DiffPatch\DiffPatch.csproj" />
   </ItemGroup>
 
