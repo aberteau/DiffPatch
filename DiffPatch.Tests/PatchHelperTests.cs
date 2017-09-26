@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DiffPatch.Tests
 {
     [TestClass]
-    public class PatcherTests
+    public class PatchHelperTests
     {
         [TestMethod]
         public void ShouldPatchSingleLine()
@@ -28,7 +28,7 @@ index 123..456 789
             var srcString = " line1\n line1a";
             var expectedString = " line2\n line1a";
 
-            string patchedString = Patcher.Patch(srcString, new [] {chunk}, "\n");
+            string patchedString = PatchHelper.Patch(srcString, new [] {chunk}, "\n");
             Assert.AreEqual(expectedString, patchedString);
         }
 
@@ -45,7 +45,7 @@ index 123..456 789
             string srcString = DataSetHelper.ReadFileContent(dataSetId, "Diff-b3a6303.txt");
             string expectedString = DataSetHelper.ReadFileContent(dataSetId, "Diff-781096c.txt").Trim();
 
-            string patchedString = Patcher.Patch(srcString, file.Chunks, Environment.NewLine).Trim();
+            string patchedString = PatchHelper.Patch(srcString, file.Chunks, Environment.NewLine).Trim();
             Assert.AreEqual(expectedString, patchedString);
         }
     }

@@ -6,7 +6,7 @@ using DiffPatch.Data;
 
 namespace DiffPatch
 {
-    public class Patcher
+    public class PatchHelper
     {
         public static String Patch(String src, IEnumerable<Chunk> chunks, string lineEnding)
         {
