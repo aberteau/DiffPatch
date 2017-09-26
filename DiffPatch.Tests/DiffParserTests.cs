@@ -261,7 +261,7 @@ But after they are produced,
         }
 
         [TestMethod]
-        public void ShouldPArseHgDiffOutput()
+        public void ShouldParseHgDiffOutput()
         {
             var diff = @"
 diff -r 514fc757521e lib/parsers.coffee
