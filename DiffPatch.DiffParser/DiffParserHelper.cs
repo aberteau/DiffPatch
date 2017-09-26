@@ -6,7 +6,7 @@ using DiffPatch.Data;
 
 namespace DiffPatch.DiffParser
 {
-    public static class Diff
+    public static class DiffParserHelper
     {
         public static IEnumerable<FileDiff> Parse(string input, string lineEnding = "\n")
         {

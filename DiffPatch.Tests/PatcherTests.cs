@@ -21,7 +21,7 @@ index 123..456 789
 @@ -1,2 +1,2 @@
 - line1
 + line2";
-            var files = Diff.Parse(diff, Environment.NewLine).ToArray();
+            var files = DiffParserHelper.Parse(diff, Environment.NewLine).ToArray();
             var file = files[0];
             Assert.AreEqual(1, file.Chunks.Count());
             var chunk = file.Chunks.First();
@@ -41,7 +41,7 @@ index 123..456 789
 
             var diff = DataSetHelper.ReadFileContent(dataSetId, "Diff-b3a6303-781096c.diff");
 
-            FileDiff[] files = Diff.Parse(diff, Environment.NewLine).ToArray();
+            FileDiff[] files = DiffParserHelper.Parse(diff, Environment.NewLine).ToArray();
             FileDiff file = files[0];
 
             string srcString = DataSetHelper.ReadFileContent(dataSetId, "Diff-b3a6303.txt");

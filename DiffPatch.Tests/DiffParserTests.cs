@@ -13,22 +13,22 @@ namespace DiffPatch.Tests
     {
         [TestMethod]
         public void ShouldParseNull() =>
-            Assert.AreEqual(0, Diff.Parse(null).Count());
+            Assert.AreEqual(0, DiffParserHelper.Parse(null).Count());
 
         [TestMethod]
         public void ShouldParseEmptyString() =>
-            Assert.AreEqual(0, Diff.Parse(string.Empty).Count());
+            Assert.AreEqual(0, DiffParserHelper.Parse(string.Empty).Count());
 
         [TestMethod]
         public void ShouldParseWhitespace() =>
-            Assert.AreEqual(0, Diff.Parse(" ").Count());
+            Assert.AreEqual(0, DiffParserHelper.Parse(" ").Count());
 
         [TestMethod]
         public void ShouldParseDataSet1709251127Diff()
         {
             string diff = DataSetHelper.ReadFileContent("D1709251127", "Diff-b3a6303-781096c.diff");
 
-            var files = Diff.Parse(diff, Environment.NewLine).ToArray();
+            var files = DiffParserHelper.Parse(diff, Environment.NewLine).ToArray();
             Assert.AreEqual(1, files.Length);
             var file = files[0];
 
@@ -49,7 +49,7 @@ index 123..456 789
 @@ -1,2 +1,2 @@
 - line1
 + line2";
-            var files = Diff.Parse(diff, Environment.NewLine).ToArray();
+            var files = DiffParserHelper.Parse(diff, Environment.NewLine).ToArray();
             Assert.AreEqual(1, files.Length);
             var file = files[0];
             Assert.AreEqual("file", file.From);
@@ -76,7 +76,7 @@ index db81be4..0000000
 -line1
 -line2
 ";
-            var files = Diff.Parse(diff, Environment.NewLine).ToArray();
+            var files = DiffParserHelper.Parse(diff, Environment.NewLine).ToArray();
             Assert.AreEqual(1, files.Length);
             var file = files[0];
             Assert.AreEqual(FileChangeType.Delete, file.Type);
@@ -103,7 +103,7 @@ index 0000000..db81be4
 +line1
 +line2
 ";
-            var files = Diff.Parse(diff, Environment.NewLine).ToArray();
+            var files = DiffParserHelper.Parse(diff, Environment.NewLine).ToArray();
             Assert.AreEqual(1, files.Length);
             var file = files[0];
             Assert.AreEqual(true, file.Type == FileChangeType.Add);
@@ -128,7 +128,7 @@ index db81be4..0000000
 -line1
 -line2
 ";
-            var files = Diff.Parse(diff, Environment.NewLine).ToArray();
+            var files = DiffParserHelper.Parse(diff, Environment.NewLine).ToArray();
             Assert.AreEqual(1, files.Length);
             var file = files[0];
             Assert.AreEqual(true, file.Type == FileChangeType.Delete);
@@ -159,7 +159,7 @@ index 0000000..db81be4
 @@ -0,0 +1 @@
 +line1
 ";
-            var files = Diff.Parse(diff, Environment.NewLine).ToArray();
+            var files = DiffParserHelper.Parse(diff, Environment.NewLine).ToArray();
             Assert.AreEqual(2, files.Length);
             var file = files[0];
             Assert.AreEqual(true, file.Deleted);
@@ -199,7 +199,7 @@ index 123..456 789
 - line1
 + line2
 ";
-            var files = Diff.Parse(diff, Environment.NewLine).ToArray();
+            var files = DiffParserHelper.Parse(diff, Environment.NewLine).ToArray();
             Assert.AreEqual(2, files.Length);
             var file = files[0];
             Assert.AreEqual("file1", file.From);
@@ -241,7 +241,7 @@ But after they are produced,
 +Deeper and more profound,
 +The door of all subtleties!
 ";
-            var files = Diff.Parse(diff, Environment.NewLine).ToArray();
+            var files = DiffParserHelper.Parse(diff, Environment.NewLine).ToArray();
             Assert.AreEqual(1, files.Length);
             var file = files[0];
             Assert.AreEqual("lao", file.From);
@@ -277,7 +277,7 @@ diff -r 514fc757521e lib/parsers.coffee
  module.exports = Parsers
  module.exports.version = (out) ->
 ";
-            var files = Diff.Parse(diff, Environment.NewLine).ToArray();
+            var files = DiffParserHelper.Parse(diff, Environment.NewLine).ToArray();
             Assert.AreEqual(1, files.Length);
             var file = files[0];
             Assert.AreEqual("@@ -43,6 +43,9 @@", file.Chunks.ElementAt(0).Content);
@@ -293,7 +293,7 @@ diff --git a/newFile.txt b/newFile.txt
 new file mode 100644
 index 0000000..e6a2e28
 ";
-            var files = Diff.Parse(diff, Environment.NewLine).ToArray();
+            var files = DiffParserHelper.Parse(diff, Environment.NewLine).ToArray();
             Assert.AreEqual(1, files.Length);
             var file = files[0];
             Assert.AreEqual("/dev/null", file.From);
@@ -308,7 +308,7 @@ diff --git a/deletedFile.txt b/deletedFile.txt
 deleted file mode 100644
 index e6a2e28..0000000
 ";
-            var files = Diff.Parse(diff, Environment.NewLine).ToArray();
+            var files = DiffParserHelper.Parse(diff, Environment.NewLine).ToArray();
             Assert.AreEqual(1, files.Length);
             var file = files[0];
             Assert.AreEqual("deletedFile.txt", file.From);
