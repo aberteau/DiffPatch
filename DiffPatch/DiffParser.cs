@@ -1,11 +1,11 @@
-﻿using DiffPatch.Data;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using DiffPatch.Data;
 
-namespace DiffPatch.DiffParser
+namespace DiffPatch
 {
     internal class DiffParser
     {

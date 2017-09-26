@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Linq;
 using DiffPatch.Data;
-using DiffPatch.DiffParser;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using DiffPatch.DiffPatcher;
 
 namespace DiffPatch.Tests
 {

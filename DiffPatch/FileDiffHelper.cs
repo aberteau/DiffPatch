@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using DiffPatch.Core;
 using DiffPatch.Data;
 
-namespace DiffPatch.DiffParser
+namespace DiffPatch
 {
     public class FileDiffHelper
     {

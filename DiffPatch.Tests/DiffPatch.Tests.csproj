@@ -20,8 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DiffPatch.Data\DiffPatch.Data.csproj" />
-    <ProjectReference Include="..\DiffPatch.DiffParser\DiffPatch.DiffParser.csproj" />
-    <ProjectReference Include="..\DiffPatch.DiffPatcher\DiffPatch.DiffPatcher.csproj" />
+    <ProjectReference Include="..\DiffPatch\DiffPatch.csproj" />
   </ItemGroup>
 
 </Project>

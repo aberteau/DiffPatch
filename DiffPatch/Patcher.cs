@@ -4,7 +4,7 @@ using System.Linq;
 using DiffPatch.Core;
 using DiffPatch.Data;
 
-namespace DiffPatch.DiffPatcher
+namespace DiffPatch
 {
     public class Patcher
     {

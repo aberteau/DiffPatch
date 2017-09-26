@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using DiffPatch.Data;
-using DiffPatch.DiffParser;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DiffPatch.Tests

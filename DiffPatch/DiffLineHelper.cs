@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace DiffPatch.DiffParser
+namespace DiffPatch
 {
     class DiffLineHelper
     {

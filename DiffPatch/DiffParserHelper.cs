@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using DiffPatch.Core;
 using DiffPatch.Data;
 
-namespace DiffPatch.DiffParser
+namespace DiffPatch
 {
     public static class DiffParserHelper
     {
@@ -18,7 +17,7 @@ namespace DiffPatch.DiffParser
             if (!lines.Any())
                 return Enumerable.Empty<FileDiff>();
 
-            var parser = new DiffPatch.DiffParser.DiffParser();
+            var parser = new DiffParser();
 
             return parser.Run(lines);
         }
