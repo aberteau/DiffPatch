@@ -23,3 +23,6 @@ Visual Studio
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+## NuGet Packages
+Available on NuGet Gallery : [DiffPatch](https://www.nuget.org/packages/DiffPatch/)
