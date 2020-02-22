@@ -37,7 +37,9 @@ namespace DiffPatch
                     { @"^\+\+\+\s", ToFile },
                     { @"^@@\s+\-(\d+),?(\d+)?\s+\+(\d+),?(\d+)?\s@@", Chunk },
                     { @"^-", DeleteLine },
-                    { @"^\+", AddLine }
+                    { @"^\+", AddLine },
+                    { @"^Binary files (.+) and (.+) differ", BinaryDiff }
+
             };
         }
 
@@ -103,6 +105,12 @@ namespace DiffPatch
         {
             Restart();
             file.To = ParseFileName(line);
+        }
+
+        private void BinaryDiff()
+        {
+            Restart();
+            file.Type = FileChangeType.Modified;
         }
 
         private void Chunk(string line, Match match)

@@ -7,9 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="DataSets\D1709251127\Diff-b3a6303-781096c.diff" />
+    <EmbeddedResource Include="DataSets\D1709251127\*.diff" />
     <EmbeddedResource Include="DataSets\D1709251127\Diff-b3a6303.txt" />
     <EmbeddedResource Include="DataSets\D1709251127\Diff-781096c.txt" />
+    
   </ItemGroup>
 
   <ItemGroup>
