@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
     <PackageId>DiffPatch</PackageId>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.0.1</PackageVersion>
     <Authors>Amael BERTEAU</Authors>
     <Description>DiffUtils (patch)</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
