@@ -38,6 +38,20 @@ namespace DiffPatch.Tests
         }
 
         [TestMethod]
+        public void ShouldParseDataSet108Diff()
+        {
+            string diff = DataSetHelper.ReadFileContent("D1709251127", "BinaryDiff.diff");
+
+            var files = DiffParserHelper.Parse(diff).ToArray();
+            Assert.AreEqual(1, files.Length);
+            var file = files[0];
+
+            Assert.AreEqual("/dev/null", file.From);
+            Assert.AreEqual("Blog.db", file.To);
+            Assert.AreEqual(FileChangeType.Modified, file.Type);
+        }
+
+        [TestMethod]
         public void ShouldParseSimpleGitLikeDiff()
         {
             var diff = @"
