@@ -1,4 +1,5 @@
-# DiffPatch
+DiffPatch [![DiffPatch NuGet version](https://img.shields.io/nuget/v/DiffPatch.svg)](https://www.nuget.org/packages/DiffPatch/)
+========
 
 Diff parsing and patching for .Net<br />
 Target Platform : .Net Standard 1.3
