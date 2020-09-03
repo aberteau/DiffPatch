@@ -2,7 +2,7 @@ DiffPatch [![DiffPatch NuGet version](https://img.shields.io/nuget/v/DiffPatch.s
 ========
 
 Diff parsing and patching for .Net<br />
-Target Platform : .Net Standard 1.3
+Target Platform : .Net Standard 2.0
 
 Inspired by / Based on :
 * [ParseDiff](https://github.com/jkingry/ParseDiff) (Unified Diff Parser in C#) by jkingry
