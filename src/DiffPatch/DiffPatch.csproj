@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>DiffPatch</PackageId>
-    <PackageVersion>1.0.1</PackageVersion>
     <Authors>Amael BERTEAU</Authors>
     <Description>DiffUtils (patch)</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
