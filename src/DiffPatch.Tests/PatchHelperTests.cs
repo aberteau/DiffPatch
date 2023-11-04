@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using DiffPatch.Data;
+using FluentAssertions;
 
 namespace DiffPatch.Tests
 {
@@ -19,15 +20,15 @@ index 123..456 789
 + line2";
             var files = DiffParserHelper.Parse(diff, Environment.NewLine).ToArray();
             var file = files[0];
-            Assert.Equal(1, file.Chunks.Count());
-            var chunk = file.Chunks.First();
+            file.Chunks.Should().HaveCount(1);
 
+            var chunk = file.Chunks.First();
 
             var srcString = " line1\n line1a";
             var expectedString = " line2\n line1a";
 
             string patchedString = PatchHelper.Patch(srcString, new [] {chunk}, "\n");
-            Assert.Equal(expectedString, patchedString);
+            patchedString.Should().Be(expectedString);
         }
 
         [Fact]
@@ -44,7 +45,7 @@ index 123..456 789
             string expectedString = DataSetHelper.ReadFileContent(dataSetId, "Diff-781096c.txt").Trim();
 
             string patchedString = PatchHelper.Patch(srcString, file.Chunks, Environment.NewLine).Trim();
-            Assert.Equal(expectedString, patchedString);
+            patchedString.Should().Be(expectedString);
         }
     }
 }
