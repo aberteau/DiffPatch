@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Linq;
 using DiffPatch.Data;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DiffPatch.Tests
 {
-    [TestClass]
     public class PatchHelperTests
     {
-        [TestMethod]
+        [Fact]
         public void ShouldPatchSingleLine()
         {
             var diff = @"
@@ -21,7 +19,7 @@ index 123..456 789
 + line2";
             var files = DiffParserHelper.Parse(diff, Environment.NewLine).ToArray();
             var file = files[0];
-            Assert.AreEqual(1, file.Chunks.Count());
+            Assert.Equal(1, file.Chunks.Count());
             var chunk = file.Chunks.First();
 
 
@@ -29,10 +27,10 @@ index 123..456 789
             var expectedString = " line2\n line1a";
 
             string patchedString = PatchHelper.Patch(srcString, new [] {chunk}, "\n");
-            Assert.AreEqual(expectedString, patchedString);
+            Assert.Equal(expectedString, patchedString);
         }
 
-        [TestMethod]
+        [Fact]
         public void ShouldPatchDataSet1709251127Diff()
         {
             string dataSetId = "D1709251127";
@@ -46,7 +44,7 @@ index 123..456 789
             string expectedString = DataSetHelper.ReadFileContent(dataSetId, "Diff-781096c.txt").Trim();
 
             string patchedString = PatchHelper.Patch(srcString, file.Chunks, Environment.NewLine).Trim();
-            Assert.AreEqual(expectedString, patchedString);
+            Assert.Equal(expectedString, patchedString);
         }
     }
 }
