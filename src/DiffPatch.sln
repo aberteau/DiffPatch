@@ -7,11 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffPatch.Tests", "DiffPatc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffPatch", "DiffPatch\DiffPatch.csproj", "{D6DE4A75-16DF-4B3C-A4AB-F2CFA4E67626}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BCA51AEC-DBFD-4917-8AF6-13BED8C9746E}"
-	ProjectSection(SolutionItems) = preProject
-		createPackages.bat = createPackages.bat
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
