@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffPatch.Tests", "DiffPatch.Tests\DiffPatch.Tests.csproj", "{8A61CF26-A3C6-47A1-9406-C04395803294}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiffPatch", "DiffPatch\DiffPatch.csproj", "{D6DE4A75-16DF-4B3C-A4AB-F2CFA4E67626}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffPatch", "DiffPatch\DiffPatch.csproj", "{D6DE4A75-16DF-4B3C-A4AB-F2CFA4E67626}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BCA51AEC-DBFD-4917-8AF6-13BED8C9746E}"
 	ProjectSection(SolutionItems) = preProject
